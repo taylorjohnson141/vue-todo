@@ -31,7 +31,7 @@ const app =Vue.createApp({
       this.currentTask.text = ''
      
     },
-    removeBook(todo){
+    removeTask(todo){
       let indexOfTodo = this.todoList.indexOf(todo)
       this.todoList.splice(indexOfTodo,1)
     }

@@ -33,7 +33,7 @@
           <span v-if ="todo.done">Undo</span>
           <span v-if ="!todo.done">Finish Task</span>
          </button>
-         <button @click = "addTask(todo)">
+         <button @click = "removeTask(todo)">
           <span>Remove Task</span>
          </button>
        </li>
