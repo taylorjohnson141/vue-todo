@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3.0.2"></script>
+
+  <title>Vue Practice</title>
+  <style>
+    .done{
+      text-decoration: line-through;
+    }
+    li{
+      list-style-type: none;
+    }
+    .header{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="header">To-Do List</h1>
+  <div id="app">
+    <!-- Vue stuff -->
+    
+    <div v-if = 'showTasks'>
+     <ul>
+       <li v-for = "todo in todoList" :class="{done:todo.done}">
+         <h3>{{todo.header}}</h3>
+         <p>{{todo.text}}</p>
+         <button @click = "toogleFav(todo)">
+          <span v-if ="todo.done">Undo</span>
+          <span v-if ="!todo.done">Finish Task</span>
+         </button>
+         <button @click = "addTask(todo)">
+          <span>Remove Task</span>
+         </button>
+       </li>
+     </ul>
+    </div>
+
+    <button @click = "toogleTasks"> 
+      <span v-if ='showTasks'> Hide Tasks</span>
+      <span v-else> Show Tasks</span>
+      </button>
+      <div v-show = "showTasks">Currently showing books</div>
+
+
+      <form>
+        <label> Add a task
+          <input v-model="currentTask.header" type= 'text'>
+          </input>
+        </label>
+        <label> Add a description
+          <input v-model="currentTask.text" type= 'text'>
+          </input>
+        </label>  
+      </form>
+      <button @click = 'addBook'> Add a Task</button>
+  </div>
+  <script src = './app.js'></script>
+</body>
+</html>
